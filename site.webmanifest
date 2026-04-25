@@ -1,0 +1,11 @@
+{
+  "name": "Niyyah",
+  "short_name": "Niyyah",
+  "description": "Verification halal, haram ou douteux avec preuves, certifications et alternatives.",
+  "lang": "fr",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f1e8",
+  "theme_color": "#0F6B3E",
+  "icons": []
+}

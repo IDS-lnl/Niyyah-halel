@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Niyyah | Scanner. Vérifier. Choisir.</title>
+    <meta
+      name="description"
+      content="Niyyah aide a verifier si un produit est halal, haram ou douteux avec preuves, certifications et alternatives plus sures."
+    />
+    <meta name="theme-color" content="#0F6B3E" />
+    <meta property="og:title" content="Niyyah" />
+    <meta
+      property="og:description"
+      content="Scannez, verifiez, puis choisissez plus sereinement."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <nav class="topbar">
+          <div class="brand" aria-label="Niyyah">
+            <div class="brand-mark" aria-hidden="true">
+              <span class="crescent"></span>
+              <span class="scan-dot"></span>
+            </div>
+            <div>
+              <p class="brand-name">Niyyah</p>
+              <p class="brand-tag">Clarté dans chaque choix.</p>
+            </div>
+          </div>
+          <a class="ghost-link" href="#apercu-app">Voir la démo</a>
+        </nav>
+
+        <section class="hero-content">
+          <div class="hero-copy">
+            <p class="eyebrow">Application Niyyah</p>
+            <h1>Scannez, vérifiez, puis choisissez plus sereinement.</h1>
+            <p class="lead">
+              Niyyah vous aide à vérifier un produit, comprendre le verdict,
+              puis découvrir une alternative plus sûre quand il le faut.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-link" href="#apercu-app">Ouvrir l’app</a>
+              <a class="secondary-link" href="#mon-compte">Mon compte</a>
+            </div>
+          </div>
+
+          <aside class="phone-stage" id="apercu-app">
+            <div class="phone">
+              <div class="phone-top">
+                <span></span>
+              </div>
+              <section class="app-screen">
+                <div class="status-card">
+                  <div>
+                    <p class="screen-label">Accueil</p>
+                    <h2 id="productName">Vanilla Whey Protein</h2>
+                  </div>
+                  <button class="small-chip" id="scanAgainButton" type="button">
+                    Scanner autre chose
+                  </button>
+                </div>
+
+                <form class="search-panel" id="searchForm">
+                  <label class="search-label" for="productSearch">Rechercher un produit</label>
+                  <div class="search-row">
+                    <input
+                      id="productSearch"
+                      name="productSearch"
+                      type="text"
+                      placeholder="Ex. Nutella 400g, Coca-Cola 33cl, Haribo Dragibus..."
+                      autocomplete="off"
+                    />
+                    <button class="search-button" type="submit">Vérifier</button>
+                  </div>
+                  <p class="search-helper">
+                    Vous pouvez écrire le nom du produit avec la marque pour faciliter la recherche.
+                  </p>
+                  <div class="quick-tags" id="quickTags"></div>
+                </form>
+
+                <button class="scanner-button" id="scanButton" type="button">
+                  <span class="scanner-ring"></span>
+                  <span class="scanner-core">Scanner</span>
+                </button>
+
+                <section class="user-summary">
+                  <div class="summary-card">
+                    <p class="summary-label">Forfait</p>
+                    <p class="summary-value">Niyyah Plus</p>
+                  </div>
+                  <div class="summary-card">
+                    <p class="summary-label">Favoris</p>
+                    <p class="summary-value">18 produits</p>
+                  </div>
+                  <div class="summary-card">
+                    <p class="summary-label">Historique</p>
+                    <p class="summary-value">42 vérifications</p>
+                  </div>
+                </section>
+
+                <article class="result-card status-halal" id="resultCard">
+                  <div class="result-header">
+                    <p class="result-pill" id="resultPill">Halal vérifié</p>
+                    <p class="confidence" id="confidenceText">Confiance 96 %</p>
+                  </div>
+                  <h3 id="resultTitle">Halal</h3>
+                  <p id="resultText">
+                    Aucun ingrédient critique détecté dans la formule analysée.
+                  </p>
+                  <div class="evidence-row">
+                    <span>Certification</span>
+                    <span id="certificationName">HFA validée</span>
+                  </div>
+                  <p class="certification-note" id="certificationNote">
+                    Organisme : Halal Food Authority. Certificat fournisseur valide et lot contrôlé.
+                  </p>
+                  <div class="meta-grid" id="metaGrid">
+                    <div class="meta-item">
+                      <p class="meta-label">Organisme</p>
+                      <p class="meta-value" id="certifierName">Halal Food Authority</p>
+                    </div>
+                    <div class="meta-item">
+                      <p class="meta-label">Pays</p>
+                      <p class="meta-value" id="certificationCountry">Royaume-Uni</p>
+                    </div>
+                    <div class="meta-item">
+                      <p class="meta-label">Validité</p>
+                      <p class="meta-value" id="certificationValidity">Jusqu’au 31/12/2026</p>
+                    </div>
+                    <div class="meta-item">
+                      <p class="meta-label">Fiabilité</p>
+                      <p class="meta-value" id="reliabilityText">Très élevée</p>
+                    </div>
+                  </div>
+                  <div class="reliability-bar" id="reliabilityBar" aria-hidden="true">
+                    <span class="reliability-fill" id="reliabilityFill"></span>
+                  </div>
+                </article>
+
+                <section class="proof-panel">
+                  <div class="proof-heading">
+                    <p class="screen-label">Preuves et clarté</p>
+                    <p class="proof-score" id="proofScore">3 preuves trouvées</p>
+                  </div>
+                  <ul class="proof-list" id="proofList">
+                    <li>Gélatine : non détectée</li>
+                    <li>Émulsifiants : origine végétale</li>
+                    <li>Certificat fournisseur à jour</li>
+                  </ul>
+                  <div class="justification-box">
+                    <p class="justification-title">Pourquoi ce verdict ?</p>
+                    <p class="justification-text" id="justificationText">
+                      La formule déclarée ne contient aucun ingrédient à risque identifié, et la
+                      certification affichée correspond au produit analysé dans cette démonstration.
+                    </p>
+                  </div>
+                </section>
+
+                <section class="wallet-preview" id="idee-premium">
+                  <div class="wallet-card">
+                    <div>
+                      <p class="screen-label">Alternative recommandée</p>
+                      <h3 id="alternativeName">Pure Whey Halal</h3>
+                    </div>
+                    <span class="wallet-chip" id="alternativeStore">MyProtein</span>
+                  </div>
+                  <p class="wallet-copy">
+                    Si un produit est haram ou douteux, Niyyah propose un équivalent
+                    proche, où le trouver, et pourquoi il est plus fiable.
+                  </p>
+                  <p class="certification-note" id="alternativeCertification">
+                    Certification alternative : halal vérifiée avec composition lisible.
+                  </p>
+                  <div class="meta-grid meta-grid-compact">
+                    <div class="meta-item">
+                      <p class="meta-label">Pays</p>
+                      <p class="meta-value" id="alternativeCountry">France</p>
+                    </div>
+                    <div class="meta-item">
+                      <p class="meta-label">Fiabilité</p>
+                      <p class="meta-value" id="alternativeReliabilityText">Élevée</p>
+                    </div>
+                  </div>
+                  <ul class="proof-list" id="alternativeList">
+                    <li>Usage similaire pour le sport</li>
+                    <li>Certification halal disponible</li>
+                    <li>Composition détaillée et traçable</li>
+                  </ul>
+                </section>
+
+                <section class="eid-banner user-eid-banner" id="eidBanner" hidden>
+                  <p class="mini-title" id="eidTitle">Aïd Mubarak</p>
+                  <p id="eidText">
+                    Aujourd’hui seulement, vous recevez 15 utilisations gratuites de Niyyah Plus.
+                  </p>
+                </section>
+
+                <nav class="bottom-nav" aria-label="Navigation principale">
+                  <a class="bottom-item active" href="#apercu-app">Accueil</a>
+                  <a class="bottom-item" href="#recherche">Recherche</a>
+                  <a class="bottom-item" href="#favoris">Favoris</a>
+                  <a class="bottom-item" href="#mon-compte">Compte</a>
+                </nav>
+              </section>
+            </div>
+          </aside>
+        </section>
+      </header>
+
+      <main>
+        <section class="trust-strip" id="mon-compte">
+          <div>
+            <p class="eyebrow">Mon compte</p>
+            <h2>Un espace simple pour suivre son abonnement et ses avantages.</h2>
+          </div>
+          <div class="trust-grid">
+            <article>
+              <span class="trust-icon trust-green">✓</span>
+              <h3>Forfait actif</h3>
+              <p>Niyyah Plus actif et renouvellement disponible dans Mon compte.</p>
+            </article>
+            <article>
+              <span class="trust-icon trust-gold">★</span>
+              <h3>Offres</h3>
+              <p>Offres saisonnières et bonus spéciaux automatiquement ajoutés au bon moment.</p>
+            </article>
+            <article>
+              <span class="trust-icon trust-red">↺</span>
+              <h3>Historique</h3>
+              <p>Retrouvez rapidement vos dernières recherches, scans et alternatives vues.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="trust-strip">
+          <div>
+            <p class="eyebrow">Niyyah Famille</p>
+            <h2>Partagez l’abonnement avec jusqu’à 6 personnes maximum.</h2>
+          </div>
+          <div class="trust-grid">
+            <article>
+              <span class="trust-icon trust-green">6</span>
+              <h3>Jusqu’à 6 profils</h3>
+              <p>Un abonnement famille peut inclure au maximum 6 personnes.</p>
+            </article>
+            <article>
+              <span class="trust-icon trust-gold">☰</span>
+              <h3>Historique séparé</h3>
+              <p>Chaque personne garde ses recherches, ses scans et ses favoris.</p>
+            </article>
+            <article>
+              <span class="trust-icon trust-red">✓</span>
+              <h3>Un seul paiement</h3>
+              <p>Le responsable du compte gère l’abonnement pour tout le groupe.</p>
+            </article>
+          </div>
+        </section>
+        <section class="feature-layout" id="mode-directeur">
+          <article class="feature-card">
+            <p class="eyebrow">Mode directeur</p>
+            <h2>Recherche, scan et verdict en quelques secondes.</h2>
+            <p>
+              Le cœur du produit reste simple: l’utilisateur cherche ou scanne un
+              produit, comprend immédiatement le verdict, puis voit les preuves
+              et la meilleure alternative disponible.
+            </p>
+          </article>
+
+          <article class="feature-card premium-card">
+            <p class="eyebrow">Valeur business</p>
+            <h2>La vraie valeur: l’alternative immédiate.</h2>
+            <p>
+              Niyyah ne vend pas juste une réponse. L’app vend un gain de temps,
+              une décision plus sereine, et une solution concrète quand un
+              produit est douteux ou haram.
+            </p>
+          </article>
+        </section>
+
+        <section class="wallet-section">
+          <article class="wallet-story">
+            <p class="eyebrow">Vision produit</p>
+            <h2>Remplacer, pas seulement signaler.</h2>
+            <p>
+              Si un produit pose problème, Niyyah doit aller jusqu’au bout:
+              proposer une alternative crédible, montrer la preuve, et indiquer
+              où l’utilisateur peut la trouver.
+            </p>
+          </article>
+
+          <div class="wallet-grid">
+            <article class="wallet-detail">
+              <p class="wallet-step">1</p>
+              <h3>Recherche ou scan</h3>
+              <p>L’utilisateur part d’un besoin simple et immédiat.</p>
+            </article>
+            <article class="wallet-detail">
+              <p class="wallet-step">2</p>
+              <h3>Verdict avec preuve</h3>
+              <p>Le résultat doit être clair, compréhensible et crédible.</p>
+            </article>
+            <article class="wallet-detail">
+              <p class="wallet-step">3</p>
+              <h3>Alternative utile</h3>
+              <p>Le premium prend tout son sens quand il aide à choisir quoi acheter à la place.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="account-section">
+          <article class="account-card">
+            <p class="eyebrow">Compte et abonnement</p>
+            <h2>Ce que voit l’utilisateur connecté.</h2>
+            <div class="account-grid">
+              <div class="mini-panel">
+                <p class="mini-title">Connexion</p>
+                <p>Retrouver son forfait, ses favoris, son historique et ses offres.</p>
+              </div>
+              <div class="mini-panel">
+                <p class="mini-title">Niyyah Plus</p>
+                <p>Alternatives premium, suivi de l’utilisation et offres spéciales.</p>
+              </div>
+              <div class="mini-panel">
+                <p class="mini-title">Niyyah Famille</p>
+                <p>Jusqu’à 6 personnes avec un seul abonnement et des profils séparés.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="account-card premium-card">
+            <p class="eyebrow">Lancement bêta</p>
+            <h2>Ce qu’il reste à brancher pour une vraie version.</h2>
+            <ul class="idea-list">
+              <li>connexion réelle avec e-mail, Apple et Google</li>
+              <li>paiement réel avec Stripe, Apple Pay et Google Pay</li>
+              <li>base produits élargie et mise à jour</li>
+              <li>historique, favoris et abonnement côté serveur</li>
+              <li>panneau admin pour corriger produits et certifications</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="pricing-section">
+          <article class="pricing-card">
+            <p class="eyebrow">Offres rentables</p>
+            <h2>Une grille simple, claire et durable.</h2>
+            <div class="pricing-grid">
+              <div class="price-panel">
+                <p class="mini-title">Gratuit</p>
+                <p class="price-line">0 €</p>
+                <p>Découverte, recherche simple et premières vérifications.</p>
+              </div>
+              <div class="price-panel featured-price">
+                <p class="mini-title">Niyyah Plus</p>
+                <p class="price-line">4,99 € / mois</p>
+                <p>Alternatives premium, historique, favoris et offres ponctuelles.</p>
+              </div>
+              <div class="price-panel">
+                <p class="mini-title">Niyyah Famille</p>
+                <p class="price-line">8,99 € / mois</p>
+                <p>Jusqu’à 6 personnes avec profils séparés et suivi centralisé.</p>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
